@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+bool primo(int n);
+
+int main() {
+    int n;
+    cout << "Introduce n: ";
+    cin >> n;
+
+    int i;
+    for (i = 2; i < n; i++) {
+        if (primo(i) && primo(n - i)) {
+            if (i <= n - i)
+                cout << n << " = " << i << " + " << n - i << endl;
+        }
+    }
+    return 0;
+}
+
+bool primo(int m) {
+    int incremen = 2;
+    bool es_primo = true;
+    while (es_primo && incremen < m) {
+        if (m % incremen == 0) 
+            es_primo = false;
+        ++incremen;
+    }
+    return es_primo;
+}
